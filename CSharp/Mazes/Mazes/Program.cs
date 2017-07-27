@@ -13,8 +13,8 @@ namespace Mazes
 {
     class Program
     {
-        const int ROWS = 10;
-        const int COLUMNS = 10;
+        //const int ROWS = 6;
+        //const int COLUMNS = 6;
 
         const int WIDTH_IN_PIXLES = 500;
         const int HEITH_IN_PIXLES = 500;
@@ -22,9 +22,34 @@ namespace Mazes
         const int PEN_THICKNESS_IN_PIXLES = 3;
         static void Main(string[] args)
         {
+            // Prompt the user to input the type of algorithm we will be using. 1 for Binary 2 for sidewinder
+            System.Console.WriteLine("Please tell me how many rows and columns the maze will have.");
+            System.Console.WriteLine("(Note that the number of columns and number of rows will be the same and must be an even integer.)");
+            int RowAndColumnCount;
+            int ROWS = 0;
+            int COLUMNS = 0;
+
+            do
+            {
+                // Get the number of rows and columns the maze will have. Currently they will be the same size and will be an even number to keep things simple.
+                // We will also restrict the size to 20 rows and columns.
+                RowAndColumnCount = Convert.ToInt32(System.Console.ReadLine());
+
+                // Create the number of rows and columns we will use if the value is valid.
+                if (RowAndColumnCount % 2 == 0 && RowAndColumnCount <= 20)
+                {
+                    ROWS = RowAndColumnCount;
+                    COLUMNS = RowAndColumnCount;
+                }
+
+                else
+                    System.Console.WriteLine("That value is not valid. Try again");
+                
+            } while (RowAndColumnCount % 2 != 0 || RowAndColumnCount > 20);
+
 
             // Prompt the user to input the type of algorithm we will be using. 1 for Binary 2 for sidewinder
-            System.Console.WriteLine("Please tell me what type of algorithm you want to use. (1 - Binary 2 - Sidewinder)");
+            System.Console.WriteLine("Please tell me what type of algorithm you want to use To generate the maze. (1 - Binary 2 - Sidewinder)");
             int algorithmType;
 
             // Create the base grid
