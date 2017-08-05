@@ -126,6 +126,8 @@ namespace Mazes
                     tool.DrawLine(blackPen, xOfUpperLeft, yOfLowerRight, xOfLowerRight, yOfLowerRight);
                 }
 
+                //Use Draw text here to draw the distance of the curent room.
+                //tool.DrawString();
 
                 double intensity = ((double)maxDistance - (double)room.distance) / ((double)maxDistance);
                 double dark = Math.Round((255d * intensity));
@@ -143,6 +145,11 @@ namespace Mazes
             blackPen.Dispose();
             tool.Dispose();
             gridPng.Dispose();
+        }
+
+        public static void initialUserInputOperations()
+        {
+
         }
     }
 }
