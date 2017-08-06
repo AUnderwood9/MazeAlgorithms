@@ -126,9 +126,6 @@ namespace Mazes
                     tool.DrawLine(blackPen, xOfUpperLeft, yOfLowerRight, xOfLowerRight, yOfLowerRight);
                 }
 
-                //Use Draw text here to draw the distance of the curent room.
-                //tool.DrawString();
-
                 double intensity = ((double)maxDistance - (double)room.distance) / ((double)maxDistance);
                 double dark = Math.Round((255d * intensity));
                 double bright = 128d + Math.Round(127d * intensity);
@@ -138,7 +135,14 @@ namespace Mazes
                 Brush roomColorBrush = new SolidBrush(roomColor);
 
                 tool.FillRectangle(roomColorBrush, xOfUpperLeft, yOfUpperLeft, cellWidth, cellHeigth);
-                
+
+                //Use Draw text here to draw the distance of the curent room.
+                Font font = new Font("Arial", 10);
+                float midpointX = (xOfUpperLeft + xOfLowerRight) / 2F;
+                float midpointY = (yOfUpperLeft + yOfLowerRight) / 2F;
+                Brush stringBrush = new SolidBrush(Color.Black);
+                tool.DrawString(room.distance.ToString(), font, stringBrush, midpointX, midpointY);
+
             }
 
             gridPng.Save("Hello.png");
