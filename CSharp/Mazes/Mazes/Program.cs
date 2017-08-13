@@ -150,7 +150,7 @@ namespace Mazes
 
 
             // Prompt the user to input the type of algorithm we will be using. 1 for Binary 2 for sidewinder
-            System.Console.WriteLine("Please tell me what type of algorithm you want to use To generate the maze. (1 - Binary 2 - Sidewinder)");
+            System.Console.WriteLine("Please tell me what type of algorithm you want to use To generate the maze. (1 - Binary 2 - Sidewinder 3 - Aldous - Broder)");
 
             // Create the base grid
             grid = new Grid.Grid(ROWS, COLUMNS);
@@ -171,11 +171,15 @@ namespace Mazes
                         currentAlgorithm = new Sidewinder();
                         break;
 
+                    case 3:
+                        currentAlgorithm = new AldousBroder();
+                        break;
+
                     default:
-                        System.Console.WriteLine("Can't find this algorithm. Please choose a valid one. (1 - Binary 2 - Sidewinder)");
+                        System.Console.WriteLine("Can't find this algorithm. Please choose a valid one. (1 - Binary 2 - Sidewinder 3 - Aldous - Broder)");
                         break;
                 }
-            } while (algorithmType > 2 || algorithmType < 1);
+            } while (algorithmType > 3 || algorithmType < 1);
 
             // Prompt the user to input whether they want to see the distance of each room from the starting point in the maze by
             // a numberical representation or by color intensity. (White being the closest while a darker green being the furthest away).
