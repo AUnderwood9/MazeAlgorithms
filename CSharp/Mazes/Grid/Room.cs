@@ -46,6 +46,7 @@ namespace Grid
             }
 
             neighbors[direction] = roomToConnectWith;
+
         }
 
         public List<Direction> Neighbors()
@@ -56,6 +57,14 @@ namespace Grid
         public List<Room> NeighborsAsRooms()
         {
             return neighbors.Values.ToList();
+        }
+
+        public bool hasNeighbors()
+        {
+            if (neighbors.Count > 0)
+                return true;
+            else
+                return false;
         }
 
     }
